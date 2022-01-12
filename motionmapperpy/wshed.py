@@ -8,6 +8,7 @@ from skimage.filters import roberts
 from sklearn.mixture import GaussianMixture
 import matplotlib.pyplot as plt
 from .mmutils import *
+from pathlib import Path
 
 bmapcmap = gencmap()
 
@@ -156,6 +157,7 @@ def findWatershedRegions(parameters, minimum_regions=150, startsigma=0.1, pThres
 
     zValues = []
     projfiles = glob.glob(projectionfolder + '/'+endident)
+    projfiles = [Path(p).as_posix() for p in projfiles]  # Windows -> Unix paths
     t1 = time.time()
 
     zValNames = []
