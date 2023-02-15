@@ -169,7 +169,7 @@ def findWatershedRegions(parameters, minimum_regions=150, startsigma=0.1, pThres
     zValLens = []
     ampVels = []
     for pi, projfile in enumerate(projfiles):
-        fname = projfile.split('/')[-1].split('.')[0]
+        fname = Path(projfile).stem
         zValNames.append(fname)
         print('%i/%i Loading embedding for %s %0.02f seconds.' % (pi + 1, len(projfiles), fname, time.time() - t1))
         if parameters.method == 'TSNE':
